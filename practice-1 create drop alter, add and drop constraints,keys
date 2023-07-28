@@ -182,3 +182,37 @@ insert into employee values(1,'XYZ', 25, '2021-08-10', 50000, 'Gurgaon');
 alter table employee drop constraint id_unique;
 
 insert into employee values(1,'XYZ', 25, '2021-08-10', 50000, 'Gurgaon');
+Create table persons
+(
+    id int, 
+    name varchar(50), 
+    age int
+);
+DESCRIBE persons;
+alter table persons add constraint pk_constraint PRIMARY KEY(id);
+insert into persons values(1,'Shashank',29);
+
+--- Try to insert duplicate value for primary key COLUMN
+insert into persons values(1,'Rahul',28);
+
+--- Try to insert null value for primary key COLUMN
+insert into persons values(null,'Rahul',28);
+
+--- To check difference between Primary Key and Unique
+alter table persons add constraint age_unq UNIQUE(age); 
+
+select * from persons;
+
+
+insert into persons values(2,'Rahul',28);
+
+
+insert into persons values(3,'Amit',28);
+
+insert into persons values(3,'Amit',null);
+
+select * from persons;
+
+insert into persons values(4,'Charan',null);
+
+insert into persons values(5,'Deepak',null);
