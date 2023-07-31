@@ -1,0 +1,94 @@
+
+select  count(distinct(age)) as total_unique_ages from employee;
+-- count of distict age as diff_age_emp from employee
+select count(distinct(age))as dif_age_emp from employee;
+
+--- Increment salary of each employee by 20% and display final result with new salary
+SELECT  id,
+        name,
+        salary as old_salary, 
+        (salary + salary * 0.2) as new_salary
+FROM employee;
+
+select id,name,salary as old_salary,(salary+salary*0.2)as new_salary from employee;
+
+-- Syntax for update command
+select * from employee;
+
+--- Upadtes will be made for all rows
+UPDATE employee SET age = 25,hiring_date='2023-01-01';
+
+select * from employee;
+
+--- update the salary of employee after giving 20% increment
+UPDATE employee SET salary = salary + salary * 0.2;
+UPDATE employee SET city ='Bangalore'WHERE id =4;
+UPDATE employee SET hiring_date='2021-08-10' WHERE id =4;
+select * from employee;
+
+
+--- How to filter data using WHERE Clauses
+select * from employee where hiring_date = '2021-08-10';
+
+select * from employee where city = 'gurgaon';
+select * from employee;
+
+--- Update the salary of employees who joined the company on 2021-08-10 to 80000
+update employee SET salary = 80000 where hiring_date = '2021-08-10';
+
+select * from employee;
+
+
+--- how to delete specific records from table using delete command
+--- delete records of those employess who joined company on 2021-08-10
+
+delete from employee where hiring_date = '2021-08-10';
+
+
+select * from employee;
+
+--- How to apply auto increment
+create table auto_inc_exmp
+(
+  id int auto_increment,
+  name varchar(20),
+  primary key (id)
+);
+
+insert into auto_inc_exmp(name) values('Shashank');
+insert into auto_inc_exmp(name) values('Rahul');
+
+select * from auto_inc_exmp;
+
+--- Use of limit 
+select * from employee;
+select * from employee limit 2;
+
+
+# sorting data in mysql by using 'Order By'
+select * from employee;
+
+# arrage data in ascending order
+select * from employee order by name;
+
+
+# arrage data in descending order
+select * from employee order by name desc;
+
+# display employee data in desc order of salary and if salaries are same for more than one employees
+# arrange their data in ascedinding order of name
+
+select * from employee order by salary desc, name asc;
+
+# when we ignore multilevel ordering
+select * from employee order by salary desc;
+
+# Write a query to find the employee who is getting maximum salary?
+select * from employee order by salary desc limit 1;
+
+
+select * from employee  ORDER BY salary desc limit 1;
+
+# Write a query to find the employee who is getting minium salary?
+select * from employee order by salary limit 1;
+select * from employee  ORDER BY salary limit 1;
